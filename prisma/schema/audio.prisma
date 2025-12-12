@@ -1,0 +1,12 @@
+model UploadedVoice {
+  id String @id @default(cuid())
+  name String
+  s3Key String
+  url String
+  userId      String @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  @@map("uploaded_voice")
+}

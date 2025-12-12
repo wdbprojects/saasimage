@@ -1,0 +1,17 @@
+model AudioProject {
+  id  String @id @default(cuid())
+  name String?
+  text String?
+  audioUrl String @map("audio_url")
+  s3Key String
+  language String
+  voiceS3Key String
+  exaggeration Float @default(0.5)
+  cfgWeight Float @default(0.5) @map("cfg_weight")
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("audio_project")
+}
