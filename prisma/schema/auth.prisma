@@ -12,9 +12,8 @@ model User {
   banExpires    DateTime?
   sessions      Session[]
   accounts      Account[]
-  credits Int @default(10)
-  audioProjects AudioProject[]
-  uploadedVoices UploadedVoice[]
+  projects      Project[]
+  credits       Int       @default(10)
 
   @@unique([email])
   @@map("users")

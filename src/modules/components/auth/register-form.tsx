@@ -5,7 +5,6 @@ import Link from "next/link";
 import { routes } from "@/config/routes";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { registerSchema, RegisterSchemaType } from "@/schemas/auth-schemas";
 import { useRouter } from "next/navigation";
@@ -24,6 +23,8 @@ import { Input } from "@/components/ui/input";
 import { registerAction } from "@/_actions/auth-actions";
 import { toast } from "sonner";
 import { Loader2, LogIn } from "lucide-react";
+import AuthHero from "@/modules/components/shared/auth-hero";
+import Image from "next/image";
 
 const RegisterForm = ({ className, ...props }: ComponentProps<"div">) => {
   const [pendingRegister, startRegisterTransition] = useTransition();
@@ -56,6 +57,7 @@ const RegisterForm = ({ className, ...props }: ComponentProps<"div">) => {
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
+          {/* LEFT SIDE */}
           <form
             id="register-user"
             onSubmit={handleSubmit(onSubmit)}
@@ -246,15 +248,18 @@ const RegisterForm = ({ className, ...props }: ComponentProps<"div">) => {
               </FieldDescription>
             </FieldGroup>
           </form>
+          {/* RIGHT SIDE */}
           <div className="bg-muted relative hidden md:block">
             <Image
-              src="/placeholder.svg"
+              src="/register-bg.jpg"
               width={1000}
               height={1000}
               alt=""
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              /* className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale" */
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
+          {/* <AuthHero /> */}
         </CardContent>
       </Card>
       <FieldDescription className="px-6 text-center">
