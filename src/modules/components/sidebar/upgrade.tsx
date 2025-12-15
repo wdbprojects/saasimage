@@ -10,7 +10,7 @@ import { Crown, Sparkles } from "lucide-react";
 import Link from "next/link";
 import CoinsCredits from "@/modules/components/sidebar/coins-credits";
 
-const Upgrade = () => {
+const Upgrade = ({ coins }: { coins: number | null | undefined }) => {
   return (
     <SidebarGroup>
       <SidebarGroupContent>
@@ -34,7 +34,7 @@ const Upgrade = () => {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <CoinsCredits />
+            <CoinsCredits coins={coins} />
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroupContent>

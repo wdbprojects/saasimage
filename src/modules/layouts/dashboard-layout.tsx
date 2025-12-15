@@ -4,18 +4,21 @@ import { auth } from "@/lib/auth";
 import { cookies, headers } from "next/headers";
 import HeaderDashboard from "@/modules/components/layout/header-dashboard";
 import DashboardSidebar from "@/modules/sidebar/dashboard-sidebar";
+import { getCoinsAction } from "@/_actions/user-actions";
 
 const DashboardLayout = async ({ children }: LayoutPropsMain) => {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
-  const session = await auth.api.getSession({ headers: await headers() });
-  const role = session?.user?.role;
+  // const session = await auth.api.getSession({ headers: await headers() });
+  // const role = session?.user?.role;
+
+  const coins = await getCoinsAction();
 
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       <HeaderDashboard />
       <div className="flex w-full overflow-y-auto">
-        <DashboardSidebar role={role} user={session?.user} />
+        <DashboardSidebar coins={coins} />
         <main className="w-full pt-16">{children}</main>
       </div>
     </SidebarProvider>

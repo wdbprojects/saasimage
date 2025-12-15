@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const HeaderLinks = () => {
-  const pathname = usePathname();
+  const currentPathname = usePathname();
 
   return (
     <div className="flex items-center justify-center gap-2">
@@ -15,16 +15,18 @@ const HeaderLinks = () => {
         href={routes.home}
         className={cn(
           buttonVariants({ size: "sm", variant: "outline" }),
-          pathname === routes.home && "coursor-default",
+          currentPathname === routes.home &&
+            "coursor-default! bg-background! hover:bg-background! hover:text-foreground! hover:cursor-default!",
         )}
       >
-        Features
+        Home
       </Link>
       <Link
         href={routes.about}
         className={cn(
           buttonVariants({ size: "sm", variant: "outline" }),
-          pathname === routes.about && "coursor-default",
+          currentPathname === routes.about &&
+            "coursor-default! bg-background! hover:bg-background! hover:text-foreground! hover:cursor-default!",
         )}
       >
         Pricing
@@ -33,16 +35,18 @@ const HeaderLinks = () => {
         href={routes.about}
         className={cn(
           buttonVariants({ size: "sm", variant: "outline" }),
-          pathname === routes.about && "coursor-default",
+          currentPathname === routes.about &&
+            "coursor-default! bg-background! hover:bg-background! hover:text-foreground! hover:cursor-default!",
         )}
       >
-        Reviews
+        About
       </Link>
       <Link
         href={routes.dashboard}
         className={cn(
           buttonVariants({ size: "sm", variant: "outline" }),
-          pathname === routes.dashboard && "coursor-default",
+          currentPathname === routes.dashboard &&
+            "coursor-default! bg-background! hover:bg-background! hover:text-foreground! hover:cursor-default!",
         )}
       >
         Dashboard

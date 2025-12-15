@@ -8,4 +8,5 @@ export type LayoutPropsMain = {
 export interface SidebarProps {
   role?: string | null | undefined;
   user?: AuthUser | null | undefined;
+  coins?: number | null | undefined;
 }

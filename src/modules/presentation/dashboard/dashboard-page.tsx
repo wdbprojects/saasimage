@@ -1,4 +1,5 @@
 import Breadcrumbs from "@/modules/components/shared/breadcrumbs";
+import CoinsCredits from "@/modules/components/sidebar/coins-credits";
 
 const DashboardPage = () => {
   return (

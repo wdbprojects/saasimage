@@ -7,28 +7,31 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarRail,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { sidebarData as data } from "@/lib/data";
 import NavMain from "@/modules/components/sidebar/nav-main";
 import NavUser from "@/modules/components/sidebar/nav-user";
 import NavSecondary from "@/modules/components/sidebar/nav-secondary";
 import Upgrade from "../components/sidebar/upgrade";
+import CoinsCredits from "../components/sidebar/coins-credits";
 
-const DashboardSidebar: FC<SidebarProps> = () => {
+const DashboardSidebar: FC<SidebarProps> = ({ coins }) => {
   return (
     <Sidebar
-      className="z-40 rounded-sm border-none! pt-18"
+      className="z-40 rounded-sm pt-18"
       variant="floating"
       collapsible="icon"
     >
       <div className="bg-sidebar flex h-full flex-col justify-between rounded-lg border-none!">
         {/* <SidebarHeader>DASHBOARD HEADER</SidebarHeader> */}
-        <SidebarContent>
+        <SidebarContent className="border-b">
           <NavMain items={data.navMain} />
           {/* <NavProjects projects={data.projects} /> */}
           <NavSecondary items={data.navSecondary} className="mt-auto" />
-          <Upgrade />
+          <Upgrade coins={coins} />
         </SidebarContent>
+
         <SidebarFooter>
           <NavUser user={data.user} />
         </SidebarFooter>
