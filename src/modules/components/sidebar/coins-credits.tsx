@@ -1,5 +1,5 @@
 import { SidebarMenuSub } from "@/components/ui/sidebar";
-import { Coins, Sparkles } from "lucide-react";
+import { Coins } from "lucide-react";
 
 const CoinsCredits = () => {
   return (

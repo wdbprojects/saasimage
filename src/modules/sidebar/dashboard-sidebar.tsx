@@ -11,7 +11,8 @@ import {
 import { sidebarData as data } from "@/lib/data";
 import NavMain from "@/modules/components/sidebar/nav-main";
 import NavUser from "@/modules/components/sidebar/nav-user";
-import NavSecondary from "../components/sidebar/nav-secondary";
+import NavSecondary from "@/modules/components/sidebar/nav-secondary";
+import Upgrade from "../components/sidebar/upgrade";
 
 const DashboardSidebar: FC<SidebarProps> = () => {
   return (
@@ -26,6 +27,7 @@ const DashboardSidebar: FC<SidebarProps> = () => {
           <NavMain items={data.navMain} />
           {/* <NavProjects projects={data.projects} /> */}
           <NavSecondary items={data.navSecondary} className="mt-auto" />
+          <Upgrade />
         </SidebarContent>
         <SidebarFooter>
           <NavUser user={data.user} />

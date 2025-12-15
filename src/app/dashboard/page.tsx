@@ -1,5 +1,7 @@
+import DashboardPage from "@/modules/presentation/dashboard/dashboard-page";
+
 const DashboardPageMain = () => {
-  return <div>DashboardPageMain</div>;
+  return <DashboardPage />;
 };
 
 export default DashboardPageMain;

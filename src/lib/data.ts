@@ -1,3 +1,4 @@
+import { routes } from "@/config/routes";
 import {
   AudioWaveform,
   BookOpen,
@@ -31,8 +32,8 @@ export const sidebarData = {
       icon: SquareTerminal,
       isActive: true,
       items: [
-        { title: "History", url: "#" },
-        { title: "Starred", url: "#" },
+        { title: "History", url: routes.playgroundHistory },
+        { title: "Starred", url: routes.playgroundStarred },
         { title: "Settings", url: "#" },
       ],
     },
@@ -41,7 +42,7 @@ export const sidebarData = {
       url: "#",
       icon: Bot,
       items: [
-        { title: "Genesis", url: "#" },
+        { title: "Genesis", url: routes.modelsGenesis },
         { title: "Explorer", url: "#" },
         { title: "Quantum", url: "#" },
       ],

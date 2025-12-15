@@ -16,14 +16,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from "lucide-react";
+import { routes } from "@/config/routes";
+import { ChevronsUpDown, Cog, LogOut, Sparkles, User } from "lucide-react";
+import Link from "next/link";
 
 const NavUser = ({
   user,
@@ -83,18 +78,26 @@ const NavUser = ({
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem className="cursor-pointer">
-                <BadgeCheck />
-                Account
+              <DropdownMenuItem className="cursor-pointer" asChild>
+                <Link href={routes.customerPortal}>
+                  <User className="size-3.5" />
+                  Customer Portal
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
+              <DropdownMenuItem className="cursor-pointer" asChild>
+                <Link href={routes.settings}>
+                  <Cog className="size-3.5" />
+                  Settings
+                </Link>
+              </DropdownMenuItem>
+              {/* <DropdownMenuItem className="cursor-pointer">
                 <CreditCard />
                 Billing
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
+              </DropdownMenuItem> */}
+              {/* <DropdownMenuItem className="cursor-pointer">
                 <Bell />
                 Notifications
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="cursor-pointer">

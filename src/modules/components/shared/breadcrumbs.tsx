@@ -7,7 +7,6 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { routes } from "@/config/routes";
-import Link from "next/link";
 
 const Breadcrumbs = () => {
   return (

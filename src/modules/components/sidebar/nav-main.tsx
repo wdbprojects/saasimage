@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
@@ -31,6 +31,8 @@ const NavMain = ({
     }[];
   }[];
 }) => {
+  const currentPathname = usePathname();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -58,7 +60,10 @@ const NavMain = ({
                       const { title, url } = subItem;
                       return (
                         <SidebarMenuSubItem key={title}>
-                          <SidebarMenuSubButton asChild>
+                          <SidebarMenuSubButton
+                            asChild
+                            isActive={url === currentPathname}
+                          >
                             <Link href={url}>{title}</Link>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
