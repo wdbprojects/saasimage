@@ -1,4 +1,4 @@
-/* "use server";
+"use server";
 
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
@@ -14,25 +14,73 @@ export const getCoinsAction = async () => {
   });
   return response.credits;
 };
- */
 
-"use server";
+/* RETRIEVE SINGLE USER */
+export const getUserDataAction = async (id: string) => {
+  try {
+    if (!id) throw new Error("Please provide the user ID");
+    const user = await prisma.user.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    return {
+      success: true,
+      data: user,
+      message: "User retrieved successfully",
+    };
+  } catch (err) {
+    console.error(err);
+    return { success: false, message: "Unknown error found!" };
+  }
+};
 
-import { auth } from "@/lib/auth";
-import prisma from "@/lib/prisma";
-import { headers } from "next/headers";
+/* UPDATE NAME */
+export const updateNameAction = async (id: string, name?: string) => {
+  try {
+    const updatedUser = await prisma.user.update({
+      where: {
+        id: id,
+      },
+      data: {
+        name: name,
+      },
+    });
+    return {
+      success: true,
+      message: "Name updated successfully",
+      data: updatedUser,
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      success: false,
+      message: "Could not update name, unknown reasons",
+    };
+  }
+};
 
-export async function getCoinsAction() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
-  if (!session) return null;
-
-  const user = await prisma.user.findUniqueOrThrow({
-    where: { id: session.user.id },
-    select: { credits: true },
-  });
-
-  return user.credits;
-}
+/* UPDATE EMAIL */
+export const updateEmailAction = async (id: string, email?: string) => {
+  try {
+    const updatedUser = await prisma.user.update({
+      where: {
+        id: id,
+      },
+      data: {
+        email: email,
+      },
+    });
+    return {
+      success: true,
+      message: "Email updated successfully",
+      data: updatedUser,
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      success: false,
+      message: "Could not update email, unknown reasons",
+    };
+  }
+};

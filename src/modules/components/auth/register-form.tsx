@@ -132,7 +132,7 @@ const RegisterForm = ({ className, ...props }: ComponentProps<"div">) => {
                           <Input
                             id="password"
                             type="password"
-                            placeholder="12345678"
+                            placeholder="Enter your password"
                             autoComplete="off"
                             aria-invalid={fieldState.invalid}
                             {...field}
@@ -159,7 +159,7 @@ const RegisterForm = ({ className, ...props }: ComponentProps<"div">) => {
                           <Input
                             id="confirmPassword"
                             type="password"
-                            placeholder="12345678"
+                            placeholder="Confirm your password"
                             autoComplete="off"
                             aria-invalid={fieldState.invalid}
                             {...field}

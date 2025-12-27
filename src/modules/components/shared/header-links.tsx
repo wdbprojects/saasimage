@@ -42,10 +42,10 @@ const HeaderLinks = () => {
         About
       </Link>
       <Link
-        href={routes.dashboard}
+        href={routes.dashboardMain}
         className={cn(
           buttonVariants({ size: "sm", variant: "outline" }),
-          currentPathname === routes.dashboard &&
+          currentPathname === routes.dashboardMain &&
             "coursor-default! bg-background! hover:bg-background! hover:text-foreground! hover:cursor-default!",
         )}
       >

@@ -27,6 +27,32 @@ export const sidebarData = {
   ],
   navMain: [
     {
+      title: "Main Menu",
+      items: [
+        {
+          id: 1,
+          name: "Dashboard",
+          url: routes.dashboardMain,
+          icon: SquareTerminal,
+        },
+        {
+          id: 2,
+          title: "Orders",
+          name: "Orders",
+          url: routes.dashboardOrders,
+          icon: Bot,
+        },
+        {
+          id: 3,
+          name: "Settings",
+          url: routes.dashboardSettings,
+          icon: Settings2,
+        },
+      ],
+    },
+  ],
+  navMainSubGroup: [
+    {
       title: "Playground",
       url: "#",
       icon: SquareTerminal,
@@ -34,7 +60,7 @@ export const sidebarData = {
       items: [
         { title: "History", url: routes.playgroundHistory },
         { title: "Starred", url: routes.playgroundStarred },
-        { title: "Settings", url: "#" },
+        { title: "Settings", url: routes.dashboardSettings },
       ],
     },
     {
