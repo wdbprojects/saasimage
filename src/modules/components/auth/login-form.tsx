@@ -23,7 +23,6 @@ import { Input } from "@/components/ui/input";
 import { loginAction } from "@/_actions/auth-actions";
 import { toast } from "sonner";
 import { Loader2, LogIn } from "lucide-react";
-import AuthHero from "@/modules/components/shared/auth-hero";
 import Image from "next/image";
 
 const LoginForm = ({ className, ...props }: ComponentProps<"div">) => {
@@ -44,7 +43,7 @@ const LoginForm = ({ className, ...props }: ComponentProps<"div">) => {
       if (response.success) {
         toast.success(response.message);
         reset();
-        router.push(routes.home);
+        router.push(routes.dashboardMain);
       } else {
         toast.error(response.message);
       }

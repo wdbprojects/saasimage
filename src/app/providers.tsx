@@ -10,7 +10,7 @@ const Providers = ({ children }: LayoutPropsMain) => {
       defaultTheme="dark"
       disableTransitionOnChange
     >
-      <NextTopLoader showSpinner={false} color="#a84370" />
+      <NextTopLoader showSpinner={false} color="#a48fff" />
       {children}
       <Toaster richColors closeButton position="bottom-right" expand={true} />
     </ThemeProvider>

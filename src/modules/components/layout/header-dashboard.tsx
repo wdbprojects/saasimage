@@ -36,7 +36,7 @@ const HeaderDashboard = async () => {
           {session && (
             <div className="flex flex-1 items-center justify-end gap-2">
               <span className="text-xs">Signed in as:</span>
-              <Badge variant="default">{session?.user.role}</Badge>
+              <Badge variant="default">{session?.user.name}</Badge>
             </div>
           )}
           {!session ? (

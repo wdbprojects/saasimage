@@ -2,8 +2,9 @@ export const routes = {
   home: "/",
   about: "/about",
   /* DASHBOARD */
-  dashboard: "/dashboard",
-  settings: "/dashboard/settings",
+  dashboardMain: "/dashboard",
+  dashboardSettings: "/dashboard/settings",
+  dashboardOrders: "/dashboard/orders",
   customerPortal: "/dashboard/customer-portal",
   playgroundHistory: "/dashboard/playground/history",
   playgroundStarred: "/dashboard/playground/starred",
