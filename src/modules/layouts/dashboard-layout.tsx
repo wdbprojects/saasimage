@@ -1,0 +1,30 @@
+import { getCoinsAction } from "@/_actions/user-actions";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { LayoutPropsMain } from "@/config/types";
+import { auth } from "@/lib/auth";
+import HeaderDashboard from "@/modules/components/layout/header-dashboard";
+import DashboardSidebar from "@/modules/sidebars/dashboard-sidebar";
+import { cookies, headers } from "next/headers";
+
+const DashboardLayout = async ({ children }: LayoutPropsMain) => {
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+  const session = await auth.api.getSession({ headers: await headers() });
+  const user = session?.user;
+
+  const coins = await getCoinsAction();
+
+  return (
+    <SidebarProvider defaultOpen={defaultOpen}>
+      <HeaderDashboard />
+      <div className="flex w-full overflow-y-auto">
+        <DashboardSidebar coins={coins} user={user} />
+        <main className="w-full pt-12">
+          <div className="p-4">{children}</div>
+        </main>
+      </div>
+    </SidebarProvider>
+  );
+};
+
+export default DashboardLayout;
