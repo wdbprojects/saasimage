@@ -21,8 +21,18 @@ export const sidebarData = {
           url: routes.dashboard,
           icon: Gauge,
         },
-        { id: 2, title: "Rendering", url: "#", icon: Settings2 },
-        { id: 3, title: "Optimizing", url: "#", icon: ImageUp },
+        {
+          id: 2,
+          title: "Create",
+          url: routes.dashboardCreate,
+          icon: ImageUp,
+        },
+        {
+          id: 3,
+          title: "Settings",
+          url: routes.dashboardSettings,
+          icon: Settings2,
+        },
       ],
     },
     {

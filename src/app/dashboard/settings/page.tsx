@@ -1,7 +1,7 @@
-import React from "react";
+import SettingsPage from "@/modules/presentation/dashboard/settings-page";
 
-const DashboardSettings = () => {
-  return <div>DashboardSettings</div>;
+const DashboardSettingsMain = () => {
+  return <SettingsPage />;
 };
 
-export default DashboardSettings;
+export default DashboardSettingsMain;

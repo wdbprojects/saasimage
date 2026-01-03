@@ -10,3 +10,9 @@ export interface SidebarProps {
   user?: AuthUser | null | undefined;
   coins?: number | null | undefined;
 }
+
+export interface ISettingsForm {
+  id: string | undefined;
+  name: string | undefined;
+  email: string | undefined;
+}
